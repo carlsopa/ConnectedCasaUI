@@ -1,12 +1,12 @@
 var HexColor;
 
 function componentToHex(c) {
-    var Hex = Number(c).toString(16);
-    if (Hex.length < 2) {
+    var hex = Number(c).toString(16);
+    if (hex.length < 2) {
         hex = "0" + hex;
     }
-    console.log(Hex);
-    return Hex;
+    console.log(hex);
+    return hex;
 }
 
 function rgbToHex(r, g, b) {
@@ -18,7 +18,7 @@ function ColorConverter() {
     red = $("#RC").val();
     green = $("#GC").val();
     blue = $("#BlC").val();
-    HexColor = rgbToHex(red, green, blue); // #0033ff
+    return rgbToHex(red, green, blue); // #0033ff
 }
 $(document).on("change", "#on", function() {
         console.log("first step")
@@ -50,13 +50,13 @@ $(document).on("change", "#on", function() {
             }
         })
     }),
-    $(document).on("slidestop", "#RC", function(e) {
+    $(document).on("slidestop", "#RC, #GC, #BlC", function(e) {
         console.log($("#RC").val());
         console.log($("#GC").val());
         console.log($("#BlC").val());
-        ColorConverter();
+        HexColor = ColorConverter();
         console.log(HexColor);
-        $("#ColorButton").css('background-color', HexColor);
+        $("#ColorButton").parent().css('background-color', HexColor);
     })
 $(document).on("change", "#RightSwitch", function(e) {
     console.log($(this).prop("checked"));
