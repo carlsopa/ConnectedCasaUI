@@ -150,11 +150,28 @@ $(document).on("click", "#AlarmTime", function(e) {
     hour = parseInt($("#Hour").val());
     minute = $("#Minute").val();
     time = $("#AmPm").prop("checked");
-    //alert(hour);
-    //alert(minute);
-    if (time == true) {
-        hour = hour + 12;
+    if ((hour < 0 || hour > 23) || (minute < 0 || minute > 59)) {
+        if (hour < 0 || hour > 23) {
+            alert('hours must be between 0 and 23');
+        } else {
+            alert('minutes must be between 0 and 59');
+        }
+    } else {
+        msg = 'Set,' + hour + ',' + minute;
+        console.log(msg);
+        $.post('/AlarmClock/' + msg);
     }
+});
+$(document).on("click", "#RadioOn", function(e) {
+    msg = 'Play';
+    $.post('/AlarmClock/' + msg);
+});
+$(document).on("click", "#RadioNext", function(e) {
+    msg = 'Next';
+    $.post('/AlarmClock/' + msg);
+});
+$(document).on("click", "#RadioPrev", function(e) {
+    msg = 'Prev';
     $.post('/AlarmClock/' + msg);
 });
 $('#ScheduleSubmit').click(function() {
