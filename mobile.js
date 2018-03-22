@@ -155,7 +155,7 @@ $(document).on("click", "#AlarmTime", function(e) {
     if (time == true) {
         hour = hour + 12;
     }
-    alert(hour + ":" + minute);
+    $.post('/AlarmClock/' + msg);
 });
 $('#ScheduleSubmit').click(function() {
     alert('Hello Paul');
