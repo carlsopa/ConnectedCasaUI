@@ -119,7 +119,7 @@
             <p>2 colors fade into each other</p>
             <form>
                 <div data-role='collapsible'>
-                    <h4 id='Fade1'>Color 1</h4>
+                    <h4 id='Fade1Color'>Color 1</h4>
                     <label for='RedColor'>Red</label>
                     <input type='range' name='RedColor' id='Fade1RC' data-highlight='true' min='0' max='255' value='127'>
                     <label for='GreenColor'>Green</label>
@@ -128,7 +128,7 @@
                     <input type='range' name='BlueColor' id='Fade1BlC' data-highlight='true' min='0' max='255' value='127'>
                 </div>
                 <div data-role='collapsible'>
-                    <h4 id='Fade2'>Color 2</h4>
+                    <h4 id='Fade2Color'>Color 2</h4>
                     <label for='RedColor'>Red</label>
                     <input type='range' name='RedColor' id='Fade2RC' data-highlight='true' min='0' max='255' value='127'>
                     <label for='GreenColor'>Green</label>
@@ -152,7 +152,21 @@
         </form>
     </div>
     <div data-role='page' id='AlarmClock'>
-        Control your semi cool alarm clock here
+        <p>Controls for bedroom alarm clock</p>
+        <label for="AlarmClock_Status">Alarm Clock Status</label>
+        <input type="checkbox" data-role="flipswitch" name="AlarmClock_Status" data-on-text="Enable" data-off-text="Disable">
+        <form>
+            <label for="Hour_Input">Hour:</label>
+            <input type="number" name="Hour_Input" id="Hour" value="">
+            <label for="Minute_Input">Minute:</label>
+            <input type="number" name="Minute_Input" id="Minute" value="">
+            <label for="AmPm">Am/Pm</label>
+            <input type="checkbox" data-role="flipswitch" id="AmPm" data-on-text="PM" data-off-text="AM">
+            <input type='button' id='AlarmTime' value='Set Alarm'>
+        </form>
+        <input type="button" id="RadioOn" value="Radio Power">
+        <input type="button" id="RadioNext" value="Forward">
+        <input type="button" id="RadioPrev" value="Previous">
     </div>
     <div data-role='page' id='Settings'>
         <p>a</p>

@@ -63,7 +63,7 @@ $(document).on("change", "#on", function(e) {
         green = $("#Theater1GC").val();
         blue = $("#Theater1BlC").val();
         HexColor = ColorConverter(red, green, blue);
-        $(":header").css('background-color', HexColor);
+        $("#Theater1Color a").css('background-color', HexColor);
         Color1 = red + ":" + green + ":" + blue;
     }),
     $(document).on("slidestop", "#Theater2RC, #Theater2GC, #Theater2BlC", function(e) {
@@ -72,7 +72,7 @@ $(document).on("change", "#on", function(e) {
         blue = $("#Theater2BlC").val();
         HexColor = ColorConverter(red, green, blue);
         Color2 = red + ":" + green + ":" + blue;
-        $("#Theater2Color").parent().css('background-color', 'red');
+        $("#Theater2Color a").css('background-color', HexColor);
     }),
     $(document).on("slidestop", "#Fade1RC, #Fade1GC, #Fade1BlC", function(e) {
         red = $("#Fade1RC").val();
@@ -80,7 +80,7 @@ $(document).on("change", "#on", function(e) {
         blue = $("#Fade1BlC").val();
         HexColor = ColorConverter(red, green, blue);
         Color1 = red + ":" + green + ":" + blue;
-        $("#Fade1Color").parent().css('background-color', 'red');
+        $("#Fade1Color a").css('background-color', HexColor);
     }),
     $(document).on("slidestop", "#Fade2RC, #Fade2GC, #Fade2BlC", function(e) {
         red = $("#Fade2RC").val();
@@ -88,7 +88,7 @@ $(document).on("change", "#on", function(e) {
         blue = $("#Fade2BlC").val();
         HexColor = ColorConverter(red, green, blue);
         Color2 = red + ":" + green + ":" + blue;
-        $("#Fade2Color").parent().css('background-color', 'red');
+        $("#Fade2Color a").css('background-color', HexColor);
     }),
     $(document).on("click", "#ColorButton", function(e) {
         console.log("geood day");
@@ -145,7 +145,18 @@ $(document).on("change", "#on", function(e) {
 $(document).on("change", "#LeftSwitch", function(e) {
     console.log($(this).prop("checked"));
     $.post('/bedroomlight/left')
-})
+});
+$(document).on("click", "#AlarmTime", function(e) {
+    hour = parseInt($("#Hour").val());
+    minute = $("#Minute").val();
+    time = $("#AmPm").prop("checked");
+    //alert(hour);
+    //alert(minute);
+    if (time == true) {
+        hour = hour + 12;
+    }
+    alert(hour + ":" + minute);
+});
 $('#ScheduleSubmit').click(function() {
     alert('Hello Paul');
     var status = $('input[type="checkbox"]').filter('.custom').each(function() {
